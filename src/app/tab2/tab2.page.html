@@ -1,17 +1,127 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <img style="max-height: 20px;" src="http://staging.chimpvine.com/pluginfile.php/1/theme_edumy/headerlogo_mobile/1611562207/logo-08.png">
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="coursesOrGames">
+    <ion-segment-button value="courses">
+      <ion-label>Courses</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="games">
+      <ion-label>Games</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div [ngSwitch]="coursesOrGames">
+    <div *ngSwitchCase="'courses'">
+      <ion-list>
+        <ion-list-header>
+          <ion-label>Grade X</ion-label>
+          <ion-button>See All</ion-button>
+        </ion-list-header>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-card button (click)="mathCardClick()">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lots_of_math_symbols_and_numbers.svg">
+                </div>
+                <ion-card-header>
+                  <!ion-card-title style="font-size: 25px; text-align: center;"><!Math><!/ion-card-title>
+                  <ion-card-subtitle style="text-align: center; color: black;">Math</ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col size="6">
+              <ion-card button (click)="englishCardClick()">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                  <img src="https://cdn.pixabay.com/photo/2019/12/30/13/28/english-4729683_1280.jpg">
+                </div>
+                <ion-card-header>
+                  <!ion-card-title style="font-size: 25px; text-align: center;"><!English><!/ion-card-title>
+                  <ion-card-subtitle style="text-align: center; color: black;">English</ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6">
+              <ion-card button (click)="scienceCardClick()">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                  <img src="https://cdn.iconscout.com/icon/free/png-512/science-cell-2130789-1798569.png">
+                </div>
+                <ion-card-header>
+                  <!ion-card-title style="font-size: 25px; text-align: center;"><!Science><!/ion-card-title>
+                  <ion-card-subtitle style="text-align: center; color: black;">Science</ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col size="6">
+              <ion-card button (click)="socialStudiesCardClick()">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                  <img src="https://pixy.org/src/123/thumbs350/1236567.jpg">
+                </div>
+                <ion-card-header>
+                  <!ion-card-title style="font-size: 25px; text-align: center;"><!Social Studies><!/ion-card-title>
+                  <ion-card-subtitle style="text-align: center; color: black;">Social Studies</ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6">
+              <ion-card button (click)="computerCardClick()">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                  <img src="https://pixy.org/src/9/thumbs350/99301.jpg">
+                </div>
+                <ion-card-header>
+                  <!ion-card-title style="font-size: 25px; text-align: center;"><!Computer><!/ion-card-title>
+                  <ion-card-subtitle style="text-align: center; color: black;">Computer</ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+
+            <ion-col size="6">
+              <ion-card button (click)="financeCardClick()">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                  <img src="https://c.pxhere.com/images/ee/aa/cf798445c78db3d48f95e981d80a-1439975.jpg!d">
+                </div>
+                <ion-card-header>
+                  <!ion-card-title style="font-size: 25px; text-align: center;"><!Finance><!/ion-card-title>
+                  <ion-card-subtitle style="text-align: center; color: black;">Finance</ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6">
+              <ion-card button (click)="spanishCardClick()">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                  <img src="https://live.staticflickr.com/6203/6078029841_befef592ce_b.jpg">
+                </div>
+                <ion-card-header>
+                  <!ion-card-title style="font-size: 25px; text-align: center;"><!Spanish><!/ion-card-title>
+                  <ion-card-subtitle style="text-align: center; color: black;">Spanish</ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </div>
+
+    <div *ngSwitchCase="'games'">
+      outputGames
+    </div>
+  </div>
 </ion-content>
